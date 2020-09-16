@@ -21,9 +21,9 @@ resource "google_project" "ferrarimarco_iac" {
 }
 
 resource "google_storage_bucket" "terraform_state" {
-  name               = "${var.google_iac_project_id}-terraform-state"
-  location           = "US"
-  bucket_policy_only = true
+  name                        = "${var.google_iac_project_id}-terraform-state"
+  location                    = "US"
+  uniform_bucket_level_access = true
 
   versioning {
     enabled = true
