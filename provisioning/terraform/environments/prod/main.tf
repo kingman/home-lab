@@ -64,3 +64,11 @@ module "development-workspace" {
   google_organization_id                                          = data.google_organization.ferrari_how.org_id
   google_project_id                                               = var.google_iot_project_id
 }
+
+module "configuration" {
+  source                                   = "../../modules/configuration"
+  configuration_gke_cluster_node_pool_size = var.configuration_gke_cluster_node_pool_size
+  google_organization_id                   = data.google_organization.ferrari_how.org_id
+  google_project_id                        = var.google_configuration_project_id
+  google_region                            = var.google_default_region
+}

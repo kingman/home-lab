@@ -8,6 +8,11 @@ variable "configuration_compute_engine_keys_directory_name" {
   description = "Name of the Compute Engine public keys directory"
 }
 
+variable "configuration_gke_cluster_node_pool_size" {
+  default     = 1
+  description = "Number of nodes of the node pool used in the configuration GKE cluster"
+}
+
 variable "configuration_iot_core_keys_directory_name" {
   default     = "iot-core"
   description = "Name of the IoT Core public keys directory"
@@ -26,6 +31,10 @@ variable "configuration_public_keys_directory_name" {
 variable "configuration_directory_name" {
   default     = "terraform"
   description = "Name of the Terraform configuration directory"
+}
+
+variable "google_configuration_project_id" {
+  description = "Google Cloud project ID for the configuration environment"
 }
 
 variable "google_default_region" {
