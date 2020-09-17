@@ -7,9 +7,9 @@ provider "google" {
   zone   = var.google_default_zone
 }
 
-data "google_organization" "ferrari_how" {
+/*data "google_organization" "ferrari_how" {
   domain = "organizations/${var.google_organization_domain}"
-}
+}*/
 
 resource "google_project" "ferrarimarco_iac" {
   billing_account = var.google_billing_account_id
@@ -44,7 +44,7 @@ module "iac-pipeline" {
   iot_core_keys_directory_path       = local.iot_core_public_keys_directory_path
   google_project_id                  = var.google_iac_project_id
   google_project_number              = google_project.ferrarimarco_iac.number
-  google_organization_id             = data.google_organization.ferrari_how.org_id
+  #google_organization_id             = data.google_organization.ferrari_how.org_id
 }
 
 /*module "iot" {
