@@ -66,3 +66,5 @@ variable "development_workstation_name" {
 variable "development_workstation_ssh_user" {
   description = "Username of the user to connect to the development workstation via SSH"
 }
+
+variable "google_organization_id" {}
