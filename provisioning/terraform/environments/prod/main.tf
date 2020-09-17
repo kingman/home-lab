@@ -8,7 +8,7 @@ provider "google" {
 }
 
 data "google_organization" "ferrari_how" {
-  organization = var.google_organization_domain
+  domain = "organizations/${var.google_organization_domain}"
 }
 
 resource "google_project" "ferrarimarco_iac" {
@@ -64,4 +64,4 @@ module "development-workspace" {
   development_workstation_ssh_user                                = var.development_workstation_ssh_user
   google_organization_id                                          = data.google_organization.ferrari_how.org_id
   google_project_id                                               = var.google_iot_project_id
-}*/ 
+}*/
