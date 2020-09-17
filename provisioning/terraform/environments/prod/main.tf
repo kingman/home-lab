@@ -15,7 +15,7 @@ resource "google_project" "ferrarimarco_iac" {
   billing_account = var.google_billing_account_id
   name            = var.google_iac_project_id
   project_id      = var.google_iac_project_id
-  org_id          = data.google_organization.ferrari_how.org_id
+  #org_id          = data.google_organization.ferrari_how.org_id
 
   auto_create_network = false
 }
@@ -47,7 +47,7 @@ module "iac-pipeline" {
   google_organization_id             = data.google_organization.ferrari_how.org_id
 }
 
-module "iot" {
+/*module "iot" {
   source                                   = "../../modules/iot"
   iot_core_smart_desk_public_key_file_path = local.iot_core_smart_desk_public_key_file_path
   google_organization_id                   = data.google_organization.ferrari_how.org_id
@@ -64,4 +64,4 @@ module "development-workspace" {
   development_workstation_ssh_user                                = var.development_workstation_ssh_user
   google_organization_id                                          = data.google_organization.ferrari_how.org_id
   google_project_id                                               = var.google_iot_project_id
-}
+}*/

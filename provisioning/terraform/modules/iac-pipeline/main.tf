@@ -74,7 +74,7 @@ resource "google_cloudbuild_trigger" "cloudbuild-trigger" {
   name     = "infrastructure-provisioning"
 
   github {
-    owner = "ferrarimarco"
+    owner = "kingman"
     name  = "home-lab"
 
     push {
