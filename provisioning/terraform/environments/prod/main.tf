@@ -44,7 +44,7 @@ module "iac-pipeline" {
   iot_core_keys_directory_path       = local.iot_core_public_keys_directory_path
   google_project_id                  = var.google_iac_project_id
   google_project_number              = google_project.ferrarimarco_iac.number
-  #google_organization_id             = data.google_organization.ferrari_how.org_id
+  google_organization_id             = var.google_organization_id
 }
 
 /*module "iot" {
