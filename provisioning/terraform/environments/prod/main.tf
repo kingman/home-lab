@@ -8,7 +8,7 @@ provider "google" {
 }
 
 /*data "google_organization" "ferrari_how" {
-  domain = "organizations/${var.google_organization_domain}"
+  domain = "organizations/${var.google_organization_id}"
 }*/
 
 resource "google_project" "ferrarimarco_iac" {

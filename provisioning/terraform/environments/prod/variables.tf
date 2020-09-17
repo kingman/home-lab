@@ -36,10 +36,6 @@ variable "google_default_zone" {
   description = "The default Google Cloud zone"
 }
 
-variable "google_organization_domain" {
-  description = "The default organization domain for Google Cloud projects"
-}
-
 variable "google_iot_project_id" {
   description = "Google Cloud project ID for the IoT environment"
 }
