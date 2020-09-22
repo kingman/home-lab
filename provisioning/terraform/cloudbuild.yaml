@@ -3,25 +3,11 @@ options:
     env:
         - TF_INPUT=false
 steps:
-    - id: 'decrypt secrets'
-      name: gcr.io/cloud-builders/gcloud
-      entrypoint: 'sh'
-      dir: "$_TERRAFORM_ENVIRONMENT_PATH"
-      args:
-          - '-c'
-          - |
-            /builder/google-cloud-sdk/bin/gcloud \
-                kms decrypt \
-                --ciphertext-file=terraform.tfvars.enc \
-                --plaintext-file=terraform.tfvars \
-                --location=global \
-                --keyring=cloud-build-keyring \
-                --key=cloudbuild-crypto-key
     - id: 'Download additional configuration for Terraform'
       name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:$_CLOUD_SDK_IMAGE_TAG'
       entrypoint: gsutil
-      dir: "$_TERRAFORM_ENVIRONMENT_PATH"
-      args: ['-m', 'cp', '-r', 'gs://${PROJECT_ID}-configuration/terraform', '.']
+      dir: "$_TERRAFORM_ENVIRONMENT_PATH/.."
+      args: ['-m', 'cp', '-r', 'gs://${PROJECT_ID}-configuration/terraform/$_TERRAFORM_ENVIRONMENT_PATH', '.']
     - id: 'tf init'
       name: 'hashicorp/terraform:$_TERRAFORM_IMAGE_TAG'
       entrypoint: 'sh'
