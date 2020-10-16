@@ -66,6 +66,19 @@ RUN apt-get update \
     make:armhf \
     && rm -rf /var/lib/apt/lists/*
 
+# Install tools for raspberry pi 
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive \
+    apt-get install -y --no-install-recommends \
+    bc \
+    bison \
+    flex \
+    libssl-dev \
+    make \
+    libc6-dev \
+    libncurses5-dev \
+    crossbuild-essential-arm64
+
 COPY --from=register /register /register
 COPY --from=register /qemu-binfmt-conf.sh /qemu-binfmt-conf.sh
 
