@@ -2,7 +2,7 @@ FROM multiarch/qemu-user-static:register AS register
 
 FROM ubuntu:focal
 
-ENV CROSS_COMPILE_ARCHS "arm64 armhf"
+ENV CROSS_COMPILE_ARCHS "armhf"
 
 # Allow us to install packages for cross-compiling architectures
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
