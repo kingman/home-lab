@@ -1,0 +1,23 @@
+---
+artifacts:
+  objects:
+    location: 'gs://${PROJECT_ID}-os-images/$_ROOTFS_ARCHIVE_PATH'
+    paths:
+      - '**/arch/arm64/boot/Image'
+      - '**/arch/arm64/boot/dts/broadcom/*.dtb'
+      - '**/arch/arm64/boot/dts/overlays/*.dtb*'
+      - '**/arch/arm64/boot/dts/overlays/README'
+options:
+  machineType: 'N1_HIGHCPU_8'
+steps:
+  - id: 'Build Raspberry Pi kernel'
+    name: 'gcr.io/$PROJECT_ID/arm-image-builder:$_ARM_BUILDER_IMAGE_TAG'
+    args:
+      - "--entrypoint"
+      - "$$(pwd)/build.sh"
+substitutions:
+  _ARM_BUILDER_IMAGE_TAG: '4a17db0'
+  _ROOTFS_ARCHIVE_PATH: 'arm/armv8/raspberry-pi'
+# Set a high timeout because the default is too low
+timeout: 36000s
+

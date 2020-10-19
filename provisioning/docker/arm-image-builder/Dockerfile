@@ -77,7 +77,8 @@ RUN apt-get update \
     make \
     libc6-dev \
     libncurses5-dev \
-    crossbuild-essential-arm64
+    crossbuild-essential-arm64 \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY --from=register /register /register
 COPY --from=register /qemu-binfmt-conf.sh /qemu-binfmt-conf.sh
