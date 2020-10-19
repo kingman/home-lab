@@ -22,7 +22,7 @@ RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive \
     apt-get install -y --no-install-recommends \
     bmap-tools \
-    build-essential \
+    # build-essential \
     ca-certificates \
     debootstrap \
     dirmngr \
