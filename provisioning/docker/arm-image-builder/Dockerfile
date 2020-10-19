@@ -66,7 +66,7 @@ RUN apt-get update \
     make:armhf \
     && rm -rf /var/lib/apt/lists/*
 
-# Install tools for raspberry pi 
+# Install tools for raspberry pi
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive \
     apt-get install -y --no-install-recommends \
